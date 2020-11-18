@@ -13,9 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('home.index');
+})->name('home.index');
+
+Route::get('/contact', function () {
+    return view('home.contact');
+})->name('home.contact');
 
 // Route::get('/posts/{id?}', function ($id = 2) {
 //     return 'Blog Post ' . $id;
@@ -24,5 +32,18 @@ Route::get('/', function () {
 // ])->name('posts.show');
 
 Route::get('/posts/{id?}', function ($id = 2) {
-    return 'Blog Post ' . $id;
+    $posts = [
+        1 => [
+            'title' => 'Intro to Laravel',
+            'content' => 'Short Intro to laravel',
+        ],
+        2 => [
+            'title' => 'Intro to PHP',
+            'content' => 'Short Intro to PHP',
+        ],
+    ];
+
+    abort_if(!isset($posts[$id]), 404);
+
+    return view('posts.show', ['post' => $posts[$id]]);
 })->name('posts.show');
