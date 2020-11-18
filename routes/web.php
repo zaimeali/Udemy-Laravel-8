@@ -17,8 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Route::get('/posts/{id?}', function ($id = 2) {
+//     return 'Blog Post ' . $id;
+// })->where([
+//     'id' => '[0-9]+',
+// ])->name('posts.show');
+
 Route::get('/posts/{id?}', function ($id = 2) {
     return 'Blog Post ' . $id;
-})->where([
-    'id' => '[0-9]+',
-])->name('posts.show');
+})->name('posts.show');
