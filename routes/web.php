@@ -69,3 +69,50 @@ Route::get('/posts/{id?}', function ($id = 2) use ($posts) {
 
     return view('posts.show', ['post' => $posts[$id]]);
 })->name('posts.show');
+
+
+// Lecture 36
+Route::get('/fun/responses', function () use ($posts) {
+    return response($posts, 201)
+        ->header('Content-Type', 'application/json')
+        ->cookie('My_Cookie', 'Zaime', 3600);  // 3600 means expire after 1 hour
+        //(cookie_name, cookie_value, expiration_date) 
+});
+
+
+// Lecture 37
+Route::get('/fun/redirect', function () {
+    return redirect('/contact');
+});
+
+Route::get('/fun/back', function () {
+    return back();
+});
+
+Route::get('/fun/named-route', function () {
+    return redirect()->route('posts.index');
+});
+
+Route::get('/fun/named-route/{id}', function ($id) {
+    return redirect()->route('posts.show', ['id' => $id]);
+});
+
+Route::get('/fun/away', function () {
+    return redirect()->away('https://google.com');
+});
+
+
+// Lecture 38
+Route::get('/fun/json', function () use ($posts) {
+    return response()->json($posts);
+});
+
+
+// Lecture 39
+Route::get('/fun/download', function () {
+    return response()
+        ->download(
+            public_path('/favicon.ico'), 
+            'icon_name.ico'
+        );
+});
