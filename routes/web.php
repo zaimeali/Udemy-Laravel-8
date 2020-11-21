@@ -166,3 +166,12 @@ Route::prefix('/fun')->name('fun.')->group(function () use ($posts) {
             );
     })->name('download');
 });
+
+
+// Lecture 41
+Route::get('/posts-param', function () {
+    dump(request()->all());
+    dump((int)request()->input('p', 3));  // by default value is 3
+    dump(request()->query('p'));
+    // url -> http://127.0.0.1:8000/posts-param?p=2&e=1
+});
