@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\PostsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,16 +62,16 @@ $posts = [
     ],
 ];
 
-Route::get('/posts', function () use ($posts) {
-    return view('posts.index', ['posts' => $posts]);
-})->name('posts.index');
+// Route::get('/posts', function () use ($posts) {
+//     return view('posts.index', ['posts' => $posts]);
+// })->name('posts.index');
 
-Route::get('/posts/{id?}', function ($id = 2) use ($posts) {
+// Route::get('/posts/{id?}', function ($id = 2) use ($posts) {
 
-    abort_if(!isset($posts[$id]), 404);
+//     abort_if(!isset($posts[$id]), 404);
 
-    return view('posts.show', ['post' => $posts[$id]]);
-})->name('posts.show');
+//     return view('posts.show', ['post' => $posts[$id]]);
+// })->name('posts.show');
 
 
 // // Lecture 36
@@ -193,3 +194,6 @@ Route::get('/contact', [HomeController::class, 'contact'])->name('home.contact')
 
 // Lecture 45
 Route::get('/single', AboutController::class);  // single action controller for just one action
+
+// Lecture 47
+Route::resource('posts', PostsController::class)->only(['index', 'show']);
