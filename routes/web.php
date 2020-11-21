@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AboutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,8 +28,8 @@ use Illuminate\Support\Facades\Route;
 // })->name('home.contact');
 
 // Refactoring the above two routes
-Route::view('/', 'home.index')->name('home.index');
-Route::view('/contact', 'home.contact')->name('home.contact');
+// Route::view('/', 'home.index')->name('home.index');
+// Route::view('/contact', 'home.contact')->name('home.contact');
 
 // Route::get('/posts/{id?}', function ($id = 2) {
 //     return 'Blog Post ' . $id;
@@ -183,3 +185,11 @@ Route::get('/posts-param', function () {
 Route::get('/recent_post', function () {
     return 'nice'; // it give error bcz i haven't create the authentication part
 })->middleware('auth', 'auth.basic');
+
+
+// Lecture 44
+Route::get('/', [HomeController::class, 'home'])->name('home.index');
+Route::get('/contact', [HomeController::class, 'contact'])->name('home.contact');
+
+// Lecture 45
+Route::get('/single', AboutController::class);  // single action controller for just one action
