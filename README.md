@@ -6,3 +6,6 @@
 
 ## Helper Function
 1) abort_if(!isset($posts[$id]), 404)  // with a status code
+
+## Requests Inputs Options
+1) https://laravel.com/docs/8.x/requests

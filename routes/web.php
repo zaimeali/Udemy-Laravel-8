@@ -175,3 +175,11 @@ Route::get('/posts-param', function () {
     dump(request()->query('p'));
     // url -> http://127.0.0.1:8000/posts-param?p=2&e=1
 });
+// https://laravel.com/docs/8.x/requests
+
+
+// Lecture 43
+// Applying middleware aliases name
+Route::get('/recent_post', function () {
+    return 'nice'; // it give error bcz i haven't create the authentication part
+})->middleware('auth', 'auth.basic');
