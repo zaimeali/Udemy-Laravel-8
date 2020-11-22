@@ -1,8 +1,8 @@
 <h2>{{ $post['title'] }}</h2>
 
-@isset($post['author'])
+{{-- @isset($post['author'])
     by <small>{{ $post['author'] }}</small>
-@endisset
+@endisset --}}
 
 @if (!$loop->last)
     <hr>

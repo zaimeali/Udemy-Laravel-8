@@ -4,32 +4,35 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+// Models
+use App\Models\BlogPost;
+
 class PostsController extends Controller
 {
 
-    private $posts = [
-        1 => [
-            'title' => 'Intro to Laravel',
-            'has_comments' => false,
-            'is_new' => true,
-            'author' => 'zaime',
-            'content' => 'Short Intro to laravel',
-        ],
-        2 => [
-            'title' => 'Intro to PHP',
-            'has_comments' => true,
-            'is_new' => false,
-            'author' => null,
-            'content' => 'Short Intro to PHP',
-        ],
-        3 => [
-            'title' => 'Intro to Blade',
-            'has_comments' => true,
-            'is_new' => false,
-            'author' => 'zaime',
-            'content' => 'Short Intro to Blade',
-        ],
-    ];
+    // private $posts = [
+    //     1 => [
+    //         'title' => 'Intro to Laravel',
+    //         'has_comments' => false,
+    //         'is_new' => true,
+    //         'author' => 'zaime',
+    //         'content' => 'Short Intro to laravel',
+    //     ],
+    //     2 => [
+    //         'title' => 'Intro to PHP',
+    //         'has_comments' => true,
+    //         'is_new' => false,
+    //         'author' => null,
+    //         'content' => 'Short Intro to PHP',
+    //     ],
+    //     3 => [
+    //         'title' => 'Intro to Blade',
+    //         'has_comments' => true,
+    //         'is_new' => false,
+    //         'author' => 'zaime',
+    //         'content' => 'Short Intro to Blade',
+    //     ],
+    // ];
 
     /**
      * Display a listing of the resource.
@@ -38,7 +41,8 @@ class PostsController extends Controller
      */
     public function index()
     {
-        return view('posts.index', ['posts' => $this->posts]);
+        // return view('posts.index', ['posts' => $this->posts]);
+        return view('posts.index', ['posts' => BlogPost::all()]);
     }
 
     /**
@@ -70,8 +74,10 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        abort_if(!isset($this->posts[$id]), 404);
-        return view('posts.show', ['post' => $this->posts[$id]]);
+        // abort_if(!isset($this->posts[$id]), 404);
+        // return view('posts.show', ['post' => $this->posts[$id]]);
+        // $post = BlogPost::findOrFail($id);
+        return view('posts.show', ['post' => BlogPost::findOrFail($id)]);
     }
 
     /**

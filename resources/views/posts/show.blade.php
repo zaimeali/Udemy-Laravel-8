@@ -7,7 +7,7 @@
     
     <h1>{{ $post['title'] }}</h1>
 
-    @if ($post['is_new'])
+    {{-- @if ($post['is_new'])
         <small>New Post</small>
     @else
         <small>Old Post</small>
@@ -15,7 +15,7 @@
 
     @unless (!$post['has_comments'])
         <i>Has Comments</i>
-    @endunless
+    @endunless --}}
 
     <p>{{ $post['content'] }}</p>
 @endsection
