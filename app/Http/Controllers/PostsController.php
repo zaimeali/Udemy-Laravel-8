@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+// Requests
+use App\Http\Requests\StorePost;
+
 // Models
 use App\Models\BlogPost;
 
@@ -61,21 +64,27 @@ class PostsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StorePost $request)
     {
+
         // Lecture 62
-        $request->validate([
-            'title' => 'bail|required|min:5|max:10',
-            'content' => 'bail|required|min:10'
-        ]); // bail rule will stop the further rules when there is one rule break found
+        // $request->validate([
+        //     'title' => 'bail|required|min:5|max:10',
+        //     'content' => 'bail|required|min:10'
+        // ]); // bail rule will stop the further rules when there is one rule break found
         // https://laravel.com/docs/8.x/validation#available-validation-rules
 
         // dump($request->input());
 
+        // In Lecture 64 have created our own request in Requests Folder
+        $validated = $request->validated();
+
         // Lecture 61
         $post = new BlogPost();
-        $post->title = $request->input('title');
-        $post->content = $request->input('content');
+        // $post->title = $request->input('title');
+        // $post->content = $request->input('content');
+        $post->title = $validated['title'];
+        $post->content = $validated['content'];
         $post->save();
         return redirect()->route('posts.show', ['post' => $post->id]);
     }
