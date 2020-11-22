@@ -63,7 +63,16 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
+        // Lecture 62
+        $request->validate([
+            'title' => 'bail|required|min:5|max:10',
+            'content' => 'bail|required|min:10'
+        ]); // bail rule will stop the further rules when there is one rule break found
+        // https://laravel.com/docs/8.x/validation#available-validation-rules
+
         // dump($request->input());
+
+        // Lecture 61
         $post = new BlogPost();
         $post->title = $request->input('title');
         $post->content = $request->input('content');

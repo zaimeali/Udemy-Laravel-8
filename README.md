@@ -19,3 +19,6 @@
 ## Factory and Query Builder
 1) User::factory()->count(5)->create()
 2) User::where('id', '>=', 2)->orderBy('id', 'desc')->get()
+
+## Validation Rules
+1) https://laravel.com/docs/8.x/validation#available-validation-rules
