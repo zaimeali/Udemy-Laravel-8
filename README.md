@@ -22,3 +22,6 @@
 
 ## Validation Rules
 1) https://laravel.com/docs/8.x/validation#available-validation-rules
+
+## Validation Rules in Custom Request
+1) php artisan make:request StorePost
