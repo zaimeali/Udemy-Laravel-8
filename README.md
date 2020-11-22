@@ -9,3 +9,7 @@
 
 ## Requests Inputs Options
 1) https://laravel.com/docs/8.x/requests
+
+
+## Migrations available column types
+1) https://laravel.com/docs/8.x/migrations#available-column-types
