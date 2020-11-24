@@ -121,7 +121,8 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = BlogPost::findOrFail($id);
+        return view('posts.edit', ['post' => $post]);
     }
 
     /**
@@ -131,7 +132,7 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StorePost $request, $id)
     {
         //
     }

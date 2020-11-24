@@ -197,4 +197,4 @@ Route::get('/single', AboutController::class);  // single action controller for 
 
 // Lecture 47
 Route::resource('posts', PostsController::class)
-    ->only(['index', 'show', 'create', 'store']);
+    ->only(['index', 'show', 'create', 'store', 'edit', 'update']);

@@ -6,7 +6,9 @@
     <form action="{{ route('posts.store') }}" method="POST">
         @csrf
 
-        <div>
+        @include('posts.partials.form')
+
+        {{-- <div>
             <input 
                 value="@php old('title') @endphp" 
                 type="text" name="title", placeholder="Enter Title"
@@ -33,7 +35,7 @@
                     @endforeach
                 </ul>
             </div>
-        @endif
+        @endif --}}
         <div>
             <button type="submit">Submit</button>
         </div>
