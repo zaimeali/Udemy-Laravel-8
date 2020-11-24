@@ -25,3 +25,10 @@
 
 ## Validation Rules in Custom Request
 1) php artisan make:request StorePost
+2) define validation in rules method
+
+## Bootstrap
+1) composer require laravel/ui
+2) php artisan ui bootstrap
+3) php artisan ui:controllers
+4) npm i && npm run dev
