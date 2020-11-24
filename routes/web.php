@@ -196,5 +196,9 @@ Route::get('/contact', [HomeController::class, 'contact'])->name('home.contact')
 Route::get('/single', AboutController::class);  // single action controller for just one action
 
 // Lecture 47
-Route::resource('posts', PostsController::class)
-    ->only(['index', 'show', 'create', 'store', 'edit', 'update']);
+// Route::resource('posts', PostsController::class)
+//     ->only(['index', 'show', 'create', 'store', 'edit', 'update']);
+
+
+// Lecture 70 
+Route::resource('posts', PostsController::class); 

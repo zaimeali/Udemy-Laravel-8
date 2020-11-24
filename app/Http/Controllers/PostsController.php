@@ -134,7 +134,12 @@ class PostsController extends Controller
      */
     public function update(StorePost $request, $id)
     {
-        //
+        $post = BlogPost::findOrFail($id);
+        $validated = $request->validated();
+        $post->fill($validated);
+        $post->save();
+        $request->session()->flash('status', 'Blog Post has been Updated Successfully');
+        return redirect()->route('posts.show', ['post' => $post->id]);
     }
 
     /**
@@ -145,6 +150,11 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // dd($id);
+        $post = BlogPost::findOrFail($id);
+        $post->delete();
+
+        session()->flash('status', 'Post has been deleted successfully');
+        return redirect()->route('posts.index');
     }
 }

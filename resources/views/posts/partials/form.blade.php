@@ -11,11 +11,11 @@
     @enderror
 </div>
 <div>
-    <textarea name="content" placeholder="Enter Content">{{ old('content', optional($post ?? null)->content) }}
+    <textarea name="content" placeholder="Enter Content">{{ old('content', optional($post ?? null)->content) }}</textarea>
         {{-- @php
             echo trim(old('content', $post->content))
         @endphp --}}
-    </textarea>
+    
     @error('content')
         {{ $message }}
     @enderror
