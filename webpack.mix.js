@@ -14,3 +14,10 @@ const mix = require('laravel-mix');
 mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
     .sourceMaps();
+
+if(mix.inProduction())
+{
+    // Lecture 76
+    mix.version(); // version assets (cache improvements)
+}
+// mix.version(); // good for in production env

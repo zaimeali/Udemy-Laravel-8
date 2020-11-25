@@ -88,7 +88,7 @@ class PostsController extends Controller
         // $post->save();
 
         // Lecture 67
-        BlogPost::create($validated); // Mass Assignment
+        $post = BlogPost::create($validated); // Mass Assignment
 
         // BlogPost::create() will create the instance and save it in a dB
         // BlogPost::make() will create the instance but will not save it in a dB

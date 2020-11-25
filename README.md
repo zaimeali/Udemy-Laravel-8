@@ -35,3 +35,7 @@
 2) php artisan ui bootstrap
 3) php artisan ui:controllers
 4) npm i && npm run dev
+
+## When in prod mod
+1) npm run prod
+2) in webpack file do mix.version()

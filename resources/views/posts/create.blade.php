@@ -36,8 +36,8 @@
                 </ul>
             </div>
         @endif --}}
-        <div>
-            <button type="submit">Submit</button>
+        <div class="d-flex flex-column justify-center px-5 py-3 align-items-center">
+            <button class="btn btn-primary btn-block w-50" type="submit">Create Post</button>
         </div>
     </form>
 @endsection

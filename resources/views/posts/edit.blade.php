@@ -11,8 +11,8 @@
         @method('PUT')
         @include('posts.partials.form')
 
-        <div>
-            <button type="submit">Update</button>
+        <div class="d-flex flex-column justify-center px-5 py-3 align-items-center">
+            <button class="btn btn-outline-primary btn-block w-50" type="submit">Update</button>
         </div>
     </form>
 @endsection
