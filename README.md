@@ -39,3 +39,10 @@
 ## When in prod mod
 1) npm run prod
 2) in webpack file do mix.version()
+
+## Testing
+1) vendor\bin\phpunit
+2) after setting up the testing dB env in phpunit.xml and config/database.php
+3) php artisan config:clear
+4) php artisan make:test HomeTest
+5) php artisan make:test PostTest
