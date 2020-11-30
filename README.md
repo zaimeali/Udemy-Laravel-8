@@ -58,3 +58,10 @@
 2) $post->comments
 
 ## Eager Loading
+
+
+## DB Query Log
+1) use Illuminate\Support\Facades\DB
+2) DB::connection()->enableQueryLog()
+3) some functions or lines of code
+4) DB::getQueryLog()

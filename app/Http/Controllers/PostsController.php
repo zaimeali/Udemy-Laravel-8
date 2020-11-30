@@ -10,6 +10,10 @@ use App\Http\Requests\StorePost;
 // Models
 use App\Models\BlogPost;
 
+// DB
+use Illuminate\Support\Facades\DB;
+
+
 class PostsController extends Controller
 {
 
@@ -44,6 +48,11 @@ class PostsController extends Controller
      */
     public function index()
     {
+        // DB::connection()->enableQueryLog();
+        // $posts = BlogPost::with('comments')->get();
+        // dd(DB::getQueryLog());
+
+
         // return view('posts.index', ['posts' => $this->posts]);
         return view('posts.index', ['posts' => BlogPost::all()]);
     }
