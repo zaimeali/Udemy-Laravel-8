@@ -46,3 +46,15 @@
 3) php artisan config:clear
 4) php artisan make:test HomeTest
 5) php artisan make:test PostTest
+
+
+## Collection
+1) $posts = BlogPost::with('comments')->get() // will retrieve all comments
+2) $posts = BlogPost::all()
+
+
+## Lazy Loading
+1) $post = BlogPost::findOrFail(3)
+2) $post->comments
+
+## Eager Loading
