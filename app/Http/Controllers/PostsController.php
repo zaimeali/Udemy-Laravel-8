@@ -54,7 +54,16 @@ class PostsController extends Controller
 
 
         // return view('posts.index', ['posts' => $this->posts]);
-        return view('posts.index', ['posts' => BlogPost::all()]);
+
+        // return view('posts.index', ['posts' => BlogPost::all()]);
+
+        // Lecture 102
+        return view(
+            'posts.index', 
+            [
+                'posts' => BlogPost::withCount('comments')->get(),
+            ]
+        );
     }
 
     /**

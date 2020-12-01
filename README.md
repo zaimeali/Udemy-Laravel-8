@@ -65,3 +65,30 @@
 2) DB::connection()->enableQueryLog()
 3) some functions or lines of code
 4) DB::getQueryLog()
+
+
+## Create Comment and Post
+1) $post = new BlogPost()
+2) $post->title = "Nice Title"
+3) $post->content = "Nice Content"
+4) $post->save()
+5) $comment = new Comment()
+6) $comment->content = "Nice Comment"
+7) $comment->blog_post_id = $post->id
+8) $comment->save()
+
+
+## Querying about isExistence in a dB
+1) BlogPost::has('comments')->get()
+2) BlogPost::has('comments', '>=', 2)->get()  // it will retrieve the post which have comments more or equal than 2
+3) BlogPost::whereHas('comments', function ($query) { $query->where('content', 'like', '%ice%'); })->get()
+
+
+## Querying if Doesn't Exist in a dB
+1) BlogPost::doesntHave('comments')->get()
+2) BlogPost::whereDoesntHave('comments', function ($query) { $query->where('content', 'like', '%abc%'); })->get()
+
+
+## Querying Count in a dB
+1) BlogPost::withCount('comments')->get()
+2) BlogPost::withCount(['comments', 'comments as new_comments' => function ($query) { $query->where('created_at', '>=', '2020-12-01 08:41:38'); }])->get()

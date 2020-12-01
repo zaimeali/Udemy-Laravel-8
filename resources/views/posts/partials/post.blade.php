@@ -6,6 +6,13 @@
     by <small>{{ $post['author'] }}</small>
 @endisset --}}
 
+@if ($post->comments_count)
+    <small>
+        {{ $post->comments_count }} @if($post->comments_count > 1) comments @else comment @endif
+    </small>
+@else
+    <small>No Comments yet!</small>
+@endif
  
 <div class="">
 
